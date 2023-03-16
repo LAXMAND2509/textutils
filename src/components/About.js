@@ -1,28 +1,35 @@
 import React ,{useState} from 'react'
 
-export default function About() {
-    const [myStyle,setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white',
-        border: '2px solid white'
-    });
-    const [btnText,setBtnText] = useState("Enable Dark Mode")
-    const toggleStyle = ()=>{
-        if (myStyle.color == 'white'){
-            setMyStyle({
-                color: 'black',
-                backgroundColor:  'white'
-            })
-            setBtnText("Enable Dark Mode");
-        }
-        else{
-            setMyStyle({
-                color: 'white',
-                backgroundColor:  'black'
-            })
-            setBtnText("Enable Light Mode")
-        }
+export default function About(props) {
+    // const [myStyle,setMyStyle] = useState({ //COMMENT at video 19
+    //     color: 'black',
+    //     backgroundColor: 'white',
+    //     border: '2px solid white'
+    // });
+    // const [btnText,setBtnText] = useState("Enable Dark Mode")
+    // const toggleStyle = ()=>{ //NOT NEEDED
+    //     if (myStyle.color == 'white'){
+    //         setMyStyle({
+    //             color: 'black',
+    //             backgroundColor:  'white'
+    //         })
+    //         setBtnText("Enable Dark Mode");
+    //     }
+    //     else{
+    //         setMyStyle({
+    //             color: 'white',
+    //             backgroundColor:  'black'
+    //         })
+    //         setBtnText("Enable Light Mode")
+    //     }
+    // }
+    let myStyle = {
+        color: props.mode  === 'dark'?'white':'#1f1e31',
+        backgroundColor: props.mode === 'dark'?'#1f1e31':'white',
+        border: '1px solid',
+        borderColor:props.mode === 'dark'?'#1f1e31':'white'
     }
+
     return (
         <div className='container' style={myStyle}>
             <h1 className='my-3'>About Us</h1>
@@ -64,9 +71,9 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <div className='my-2'>
-            <button onClick = {toggleStyle} type="button " className="btn btn-primary">{btnText}</button>
-            </div>
+            {/* <div className='my-2'>
+            <button onClick = {toggleStyle} type="button" className="btn btn-primary">{btnText}</button>
+            </div> */}
         </div>
     )
 }
