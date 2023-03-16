@@ -1,7 +1,7 @@
 
 import React, { useState, Component } from 'react';
 import './App.css';
-import About from './components/About';
+// import About from './components/About';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar.js'
 import TextForm from './components/TextFrom.js'
@@ -43,21 +43,22 @@ function App() {
   }
   return (
     <>
-      <Router>
+      {/* <Router> */}
         {/* <Navbar title = "TextUtils2" about = "About TextUtils"/> */}
         {/* <Navbar /> */}
         <Navbar title='TextUtils' mode={mode} modeText={modeText} toggleMode={toggleMode}></Navbar>
         <Alert alert={alert}></Alert>
         <div className="container my-3">
         {/* <About/> */}
-        <Routes>
-          <Route exact path="/about"element = {<About/>} >
-          </Route>
-          <Route exact path="/" element ={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />}>
-          </Route>
-        </Routes>
+        {/* <Routes> */}
+          {/* <Route exact path="/about"element = {<About/>} > */}
+          {/* </Route> */}
+          {/* <Route exact path="/" element ={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />}>
+          </Route> */}
+          <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}> </TextForm>
+        {/* </Routes> */}
         </div>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }
